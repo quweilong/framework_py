@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
+    <!-- Bootstrap css -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- kendo ui css -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.default.min.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <!--蓝鲸提供的公用样式库 -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk_pack.css" rel="stylesheet">
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/js/kendo.all.min.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/bk/js/bk.js"></script>
+    <!-- 数据埋点统计 -->
+    <script src="http://magicbox.bk.tencent.com/static_api/analysis.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+</head>
+<style>
+       .div-a{float:left;width:24%;height:35%;margin-left:15px;background: url(/static/home_application/img/biankuang4.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-b{float:left;width:24%;height:35%;margin-left:10px;background: url(/static/home_application/img/biankuang4.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-c{float:left;width:24%;height:35%;margin-left:10px;background: url(/static/home_application/img/biankuang4.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-d{float:left;width:24%;height:35%;margin-left:15px;background: url(/static/home_application/img/biankuang4.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-e{float:left;width:48.5%;height:30%;margin-left:15px;background: url(/static/home_application/img/biankuang3.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-f{float:left;width:48.5%;height:30%;margin-left:20px;background: url(/static/home_application/img/biankuang3.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-g{float:left;width:32%;height:30%;margin-left:14px;background: url(/static/home_application/img/biankaung1.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-h{float:left;width:32%;height:30%;margin-left:25px;background: url(/static/home_application/img/biankaung1.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+       .div-i{float:left;width:32%;height:30%;margin-left:10px;background: url(/static/home_application/img/biankaung1.png);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+        .table tr{background-color: #2b669a}
+    body{
+           background-image: url(/static/home_application/img/bj5.png);
+           background-repeat:repeat;
+	        background-size:100% 100%;
+	        -moz-background-size:100% 100%;
+       }
+</style>
+
+<body class="" style="background-color: #2b669a">
+        <div>
+            <p style="text-align:center;height: 50px"><span style="color: #2f7d33;font-size: 40px">服务器监控大屏{{ abc }}</span></p>
+        </div>
+        <div class="div-a">
+           <div  id="a" style="height: 100%;"></div>
+       </div>
+        <div class="div-b">
+           <div id="b" style="height: 100%"></div>
+       </div>
+        <div class="div-c">
+           <div id="c" style="height: 100%"></div>
+       </div>
+        <div class="div-d">
+           <div id="d" style="height: 100%"></div>
+       </div>
+         <div class="div-e">
+           <div id="e" style="height: 100%"></div>
+       </div>
+         <div class="div-f">
+           <div id="f" style="height: 100%"></div>
+       </div>
+         <div class="div-g">
+             <table style="margin-left: 35px;color: mintcream">
+               <caption align="top"style="color: #51be56">出口流量排行</caption>
+               <thead>
+               <tr>
+                    <th style="width: 100px;height: 30px">排名</th>
+                    <th style="width: 100px;">服务器IP</th>
+                    <th>流量</th>
+               </tr>
+
+               </thead>
+               <tbody id="outlet_flow">
+
+               </tbody>
+
+
+
+
+            </table>
+       </div>
+         <div class="div-h">
+             <table style="margin-left: 35px;color: mintcream">
+               <caption align="top"style="color: #51be56">存储空间排行</caption>
+                 <thead>
+                    <th style="width: 100px;height: 30px">排名</th>
+                    <th style="width: 100px;">服务器ip</th>
+                    <th>内存剩余大小</th>
+                 </thead>
+                <tbody id="memory_data">
+
+               </tbody>
+
+
+            </table>
+       </div>
+        <div class="div-i">
+            <table style="margin-left: 35px;color: mintcream">
+               <caption align="top"style="color: #51be56">CPU使用率排行</caption>
+               <th style="width: 100px;height: 30px">排名</th>
+               <th style="width: 100px;">设备ip</th>
+               <th>使用率</th>
+                <tbody id="cpu_usage">
+
+               </tbody>
+            </table>
+       </div>
+<script>
+        var dom1 = document.getElementById("a");
+        var myChart1 = echarts.init(dom1);
+        option1 = {
+            title : {
+                text: '服务器状态',
+                subtext: '',
+                x:'left',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c}({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'bottom',
+                data:['正常','故障','告警']
+            },
+            series: [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                },
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['30%', '40%'],
+                    label: {
+                        normal: {
+                            formatter: '{a|{a}}{abg|} {b|{b}：}{c}',
+                            padding: [2, 7],
+                            fontSize:18,
+                            rich: {
+                                a: {
+                                    color: '#999',
+                                    lineHeight: 12,
+                                    align: 'center',
+                                },
+                                b: {
+                                    fontSize: 16,
+                                    lineHeight: 33
+                                },
+                                per: {
+                                    color: '#eee',
+                                    backgroundColor: '#334455',
+                                    padding: [2, 4],
+                                    borderRadius: 2,
+                                    fontSize:20,
+                                }
+                            }
+                        }
+                    },
+                    data:[
+                        {value:20, name:'正常'},
+                        {value:5, name:'故障'},
+                        {value:13, name:'告警'},
+                    ],
+                    itemStyle:{
+                        emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                             },
+                        normal:{
+                            color:function(params) {
+                                    //自定义颜色
+                                    var colorList = [
+                                        '#7CCD7C', '#FF4500', '#EEEE00',
+
+                                        ];
+                                        return colorList[params.dataIndex]
+                                     }
+                        }
+                    }
+
+                }
+            ]
+        };
+        if (option1 && typeof option1 === "object") {
+            myChart1.setOption(option1, true);
+        }
+        <!------------------------->
+        var dom2 = document.getElementById("b");
+        var myChart2 = echarts.init(dom2);
+        option2 = {
+            title : {
+                text: '网络设备',
+                subtext: '',
+                x:'left',
+                textStyle: {
+                fontWeight: 'normal',
+                color: "#00FFFF",
+            },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'bottom',
+                data:['正常','故障','告警']
+            },
+            series: [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                },
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['30%', '40%'],
+                    label: {
+                        normal: {
+                            formatter: '{a|{a}}{abg|} {b|{b}：}{c}   ',
+                            padding: [2, 7],
+                            fontSize:18,
+                            rich: {
+                                a: {
+                                    color: '#999',
+                                    lineHeight: 12,
+                                    align: 'center'
+                                },
+                                b: {
+                                    fontSize: 16,
+                                    lineHeight: 33
+                                },
+                                per: {
+                                    color: '#eee',
+                                    backgroundColor: '#334488',
+                                    padding: [2, 4],
+                                    borderRadius: 2
+                                }
+                            }
+                        }
+                    },
+                    data:[
+                        {value:20, name:'正常'},
+                        {value:8, name:'故障'},
+                        {value:10, name:'告警'},
+                    ],
+                    itemStyle:{
+                        emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                             },
+                        normal:{
+                            color:function(params) {
+                                    //自定义颜色
+                                    var colorList = [
+                                            '#7CCD7C', '#FF4500', '#EEEE00',
+                                        ];
+                                        return colorList[params.dataIndex]
+                                     }
+                        }
+                    }
+                }
+            ]
+        };
+        if (option2 && typeof option2 === "object") {
+            myChart2.setOption(option2, true);
+        }
+        <!------------------------->
+        var dom3 = document.getElementById("c");
+        var myChart3 = echarts.init(dom3);
+        option3 = {
+            title : {
+                text: '业务系统',
+                subtext: '',
+                x:'left',
+                textStyle: {
+                fontWeight: 'normal',
+                color: "#00FFFF",
+            },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'bottom',
+                data:['正常','故障','告警']
+            },
+            series: [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                },
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['30%', '40%'],
+                    label: {
+                        normal: {
+                            formatter: '{a|{a}}{abg|} {b|{b}：}{c}   ',
+                            padding: [2, 7],
+                            fontSize:18,
+                            rich: {
+                                a: {
+                                    color: '#999',
+                                    lineHeight: 12,
+                                    align: 'center'
+                                },
+                                b: {
+                                    fontSize: 16,
+                                    lineHeight: 33
+                                },
+                                per: {
+                                    color: '#eee',
+                                    backgroundColor: '#334488',
+                                    padding: [2, 4],
+                                    borderRadius: 2
+                                }
+                            }
+                        }
+                    },
+                    data:[
+                        {value:9, name:'正常'},
+                        {value:4, name:'故障'},
+                        {value:3, name:'告警'},
+                    ],
+                    itemStyle:{
+                        emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                             },
+                        normal:{
+                            color:function(params) {
+                                    //自定义颜色
+                                    var colorList = [
+                                            '#7CCD7C', '#FF4500', '#EEEE00',
+                                        ];
+                                        return colorList[params.dataIndex]
+                                     }
+                        }
+                    }
+                }
+            ]
+        };
+
+        if (option3 && typeof option3 === "object") {
+            myChart3.setOption(option3, true);
+        }
+            <!------------------------->
+            var dom4 = document.getElementById("d");
+            var myChart4 = echarts.init(dom4);
+            option4 = {
+            title : {
+                text: '数据库状态',
+                subtext: '',
+                x:'left',
+                textStyle: {
+                fontWeight: 'normal',
+                color: "#00FFFF",
+            },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c}"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'bottom',
+                data:['正常','故障','告警']
+            },
+            series: [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                },
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['30%', '40%'],
+                    label: {
+                        normal: {
+                            formatter: '{a|{a}}{abg|} {b|{b}：}{c}   ',
+                            padding: [2, 7],
+                            fontSize:18,
+                            rich: {
+                                a: {
+                                    color: '#999',
+                                    lineHeight: 12,
+                                    align: 'center'
+                                },
+                                b: {
+                                    fontSize: 16,
+                                    lineHeight: 13
+                                },
+                                per: {
+                                    color: '#eee',
+                                    backgroundColor: '#334488',
+                                    padding: [2, 4],
+                                    borderRadius: 2
+                                }
+                            }
+                        }
+                    },
+                    data:[
+                        {value:13, name:'正常'},
+                        {value:2, name:'故障'},
+                        {value:3, name:'告警'},
+                    ],
+                    itemStyle:{
+                        emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                             },
+                        normal:{
+                            color:function(params) {
+                                    //自定义颜色
+                                    var colorList = [
+                                            '#7CCD7C', '#FF4500', '#EEEE00',
+                                        ];
+                                        return colorList[params.dataIndex]
+                                     }
+                        }
+                    }
+                }
+            ]
+        };
+        if (option4 && typeof option4 === "object") {
+            myChart4.setOption(option4, true);
+        }
+        <!------------------------->
+        var dom5 = document.getElementById("e");
+        var myChart5 = echarts.init(dom5);
+        option5 = {
+            title: {
+                text: 'CPU趋势图',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            legend: {
+                data:['127.0.0.1CPU趋势图','192.168.0.196CPU趋势图','192.168.0.189CPU趋势图'],
+             },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: [],
+            },
+            yAxis: {
+                type: ''
+            },
+            series: [
+                {
+                    name:'127.0.0.1CPU趋势图',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[]
+                },
+                {
+                    name:'192.168.0.196CPU趋势',
+                    type:'line',
+                    stack: '总百分比2',
+                    data:[]
+                },
+                {
+                    name:'192.168.0.189CPU趋',
+                    type:'line',
+                    stack: '百分比3',
+                    data:[]
+                },
+
+            ]
+        };
+        if (option5 && typeof option5 === "object") {
+            myChart5.setOption(option5, true);}
+
+        <!------------------------->
+
+        var dom6 = document.getElementById("f");
+        var myChart6 = echarts.init(dom6);
+        option6 = {
+            title: {
+                text: '网络使用情况',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:[]
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: []
+            },
+            yAxis: {
+                type: ''
+            },
+            series: [
+                {
+                    name:'127.0.0.1出口流量',
+                    type:'line',
+                    stack: '总量1',
+                    data:[]
+                },
+                {
+                    name:'192.168.0.196出口流量',
+                    type:'line',
+                    stack: '总量2',
+                    data:[]
+                },
+                {
+                    name:'192.168.0.189出口流量',
+                    type:'line',
+                    stack: '总量3',
+                    data:[]
+                },
+
+            ],
+
+        };
+        if (option6 && typeof option6 === "object") {
+            myChart6.setOption(option6, true);}
+    window.onload = function () {
+        publicRefresh();
+    }
+    function publicRefresh(){
+         $.ajax({
+                url:"/get_data/",
+                type:"GET",
+                dataType:"json",
+                success:function (data) {
+                    // 图表
+                     myChart5.setOption({
+                         series:[{
+                             data:data.cpu_trend_chart[0].cpu_trend_chart_10084
+                         },{
+                             data:data.cpu_trend_chart[1].cpu_trend_chart_10305
+                         },{
+                             data:data.cpu_trend_chart[2].cpu_trend_chart_10306
+                         }],
+                         xAxis:{
+                             data:data.cpu_trend_chart[0].cpu_trend_chart_time_10084
+                         },
+                     })
+
+                    myChart6.setOption({
+                         series:[{
+                             data:data.outlet_flow_trend_chart[0].outlet_flow_trend_chart_10084
+                         },{
+                             data:data.outlet_flow_trend_chart[1].outlet_flow_trend_chart_10305
+                         },{
+                             data:data.outlet_flow_trend_chart[2].outlet_flow_trend_chart_10306
+                         }],
+                         xAxis:{
+                             data:data.outlet_flow_trend_chart[0].outlet_flow_trend_chart_time_10084
+                         },
+                     })
+
+                    //  表格
+                    var outlet_flow = $("#outlet_flow")
+                    var memory_data = $("#memory_data")
+                    var cpu_usage = $("#cpu_usage")
+                    outlet_flow.html("")
+                    memory_data.html("")
+                    cpu_usage.html("")
+                    $(data.outlet_flow).each(
+                        function (i,values) {
+                            outlet_flow.append(
+                                "<tr><td>" + i  + "</td>"
+                                +"<td>" + values.ip+"</td>"
+                                +"<td>" + values.lastvalue+"</td></tr>"
+
+                            )
+
+                        }
+                    )
+                    $(data.memory_data).each(
+                        function (i,values) {
+                            memory_data.append(
+                                "<tr><td>" + i  + "</td>"
+                                +"<td>" + values.ip+"</td>"
+                                +"<td>" + values.lastvalue+"</td></tr>"
+
+                            )
+
+                        }
+                    )
+                    $(data.cpu_usage).each(
+                        function (i,values) {
+                            cpu_usage.append(
+                                "<tr><td>" + i + "</td>"
+                                +"<td>" + values.ip+"</td>"
+                                +"<td>" + values.lastvalue+"</td></tr>"
+
+                            )
+
+                        }
+                    )
+                }
+            })
+        //setTimeout(publicRefresh,10000);
+
+    }
+</script>
+
+<script>
+
+
+
+</script>
+
+</body>
+</html>
