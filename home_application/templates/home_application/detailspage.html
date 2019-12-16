@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
+    <!-- Bootstrap css -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- kendo ui css -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.default.min.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <!--蓝鲸提供的公用样式库 -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk_pack.css" rel="stylesheet">
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/js/kendo.all.min.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/bk/js/bk.js"></script>
+    <!-- 数据埋点统计 -->
+    <script src="http://magicbox.bk.tencent.com/static_api/analysis.js"></script>
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]><script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/html5shiv.min.js"></script><script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/respond.min.js"></script><![endif]-->
+</head>
+
+<body class="bg-white" data-bg-color="bg-white">
+    <div class="king-page-box king-layout1-main clearfix">
+
+        <!-- 左边 start -->
+        <div class="king-layout1-sidebar column" style="width:216px;">
+
+
+           <nav style="height:100%;" class="   f14">
+                            <div class="king-vertical-nav4">
+                                <div class="sidebar-inner">
+                                    <ul class="navi">
+                                        <li class="has_submenu current open active">
+                                            <a href="javascript:void(0);"> <i class="fa fa-gear ">                        </i>
+                                                <span>首页</span>
+                                                <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                            </a>
+                                            <ul class="sub-menu" style="display: none;">
+                                                <li><a href="javascript:void(0);">空白<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has_submenu current open c-open">
+                                            <a href="javascript:void(0);"> <i class="fa fa-wrench ">                        </i>
+                                                <span>主机列表</span>
+                                                <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li onclick="getHostInfo(this)" value="10084">Zabbix server<i class="fa fa-chevron-right pull-right"></i></li>
+                                                <li onclick="getHostInfo(this)" value="10305">wiki知识库<i class="fa fa-chevron-right pull-right"></i></li>
+                                                <li onclick="getHostInfo(this)" value="10306">金冠ITSM管理系统<i class="fa fa-chevron-right pull-right"></i></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has_submenu current open c-open">
+                                            <a href="javascript:void(0);"> <i class="fa fa-tasks ">                        </i>
+                                                <span>待定</span>
+                                                <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="javascript:void(0);">表格一<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                                <li><a href="javascript:void(0);">表格二<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has_submenu current open c-open">
+                                            <a href="javascript:void(0);"> <i class="fa fa-ellipsis-h ">                        </i>
+                                                <span>其他</span>
+                                                <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="javascript:void(0);">空白<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+        </div>
+        <!-- 左边 end -->
+        <!-- content start -->
+        <div class="king-content-wrap">
+            <div class="king-layout1-content" style="margin-left: 216px;">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>主机:</td>
+                            <td id="host"></td>
+                            <td>主机名:</td>
+                            <td id="hostName"></td>
+                            <td>IP地址:</td>
+                            <td id="ipAddress"></td>
+
+                        </tr>
+                        <tr>
+                            <td>OS类型:</td>
+                            <td id="osType"></td>
+                            <td>运行时间:</td>
+                            <td id="runTime"></td>
+                            <td>主机状态:</td>
+                            <td id="hostStatus"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!-- 设置面板Start -->
+                <template id="header_tpl_1576048683967">
+                    <tr>
+                        <th style="width: 100px;">#index#</th>
+                        <th style="width: 20%;">#task#</th>
+                        <th style="width: 20%;">#progress#</th>
+                        <th style="width: 20%;">#host#</th>
+                        <th>#date#</th>
+                    </tr>
+                </template>
+                <template id="tpl_1576048683967">
+                    <tr>
+                        <td style="width: 100px;">#index#</td>
+                        <td style="width: 20%;">#columnName1#</td>
+                        <td style="width: 20%;">#columnName2#</td>
+                        <td style="width: 20%;">#columnName3#</td>
+                        <td>#columnName4#</td>
+                    </tr>
+                </template>
+                <!-- 设置面板End -->
+                <div class="king-tab tab-box ">
+                    <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+                        <li class="active"> <a data-toggle="tab" href="#demo1" aria-expanded="true">全部</a> </li>
+                        <li class=""> <a data-toggle="tab" href="#demo2" aria-expanded="false">cpu</a> </li>
+                        <li class=""> <a data-toggle="tab" href="#demo3" aria-expanded="false">内存</a> </li>
+                    </ul>
+                    <div class="tab-content ">
+                        <div class="tab-pane fade active in" id="demo1" style="">
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div id="cpuUsage" style="height: 250px;width: 450px"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="memoryUsage" style="height: 250px;width: 450px"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="networkTraffic" style="height: 250px;width: 450px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id="diskUtilization" style="height: 260px;width: 600px"></div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="diskIO" style="height: 260px;width: 650px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="process" style="width: 1260px;height: 300px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <h3 class="king-block-title" style="color:#00FFFF ;font-size: 20px">告警信息日志</h3>
+                                        </div>
+                                        <table class="table table-striped" >
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 5%;">#</th>
+                                                    <th style="width: 5%;">时间</th>
+                                                    <th style="width: 5%;">严重性</th>
+                                                    <th style="width: 10%;">恢复时间</th>
+                                                    <th style="width: 5%;">状态</th>
+                                                    <th style="width: 10%;">信息</th>
+                                                    <th style="width: 5%;">主机</th>
+                                                    <th style="width: 20%;">问题</th>
+                                                    <th style="width: 10%;">持续时间</th>
+                                                    <th style="width: 5%;">确认</th>
+                                                    <th style="width: 5%;">动作</th>
+                                                    <th style="width: 5%;">标记</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="warningMessage">
+
+                                            </tbody>
+                                        </table>
+                                        <!-- 设置面板Start -->
+
+                                        <!-- 设置面板End -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="demo2" style="">
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049539175" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049541738" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049543985" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049548650" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049551522" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="demo3" style="">
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049591018" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049746411" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049600681" class="king-chart-box chart-line  k-chart" data-role="chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid mb0 ">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049757636" class="king-chart-box chart-bar  k-chart" data-role="chart"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div style="height: 300px; position: relative;" id="chart_1576049767040" class="king-chart-box chart-bar  k-chart" data-role="chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content end -->
+    </div>
+
+    <script>
+        // 创建图表
+        function createKendoLineChart(conf){
+            $(conf.selector).kendoChart({
+                transitions: false,
+                legend: {
+                   position: "bottom"
+                },
+                colors: ['yellow'],
+                theme : 'bootstrap',
+                seriesDefaults: {
+                    type: 'line',
+                    style: "smooth",
+                    markers: {
+                        visible: false
+                    }
+                },
+                series: conf.data.series,
+                categoryAxis: {
+                    majorGridLines : {
+                        visible: false
+                    },
+                    categories: conf.data.categories,
+                    labels: {
+                        rotation: "auto"
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    template: "#= category # #= value #"
+                }
+            });
+            //重新绘制
+            $(window).on('resize',function(){
+                var chart = $(conf.selector).data("kendoChart");
+                chart.redraw();
+            });
+        }
+
+        function initKendoLineChart(conf){
+            // 异步请求后台数据
+            $.ajax({
+                url: conf.url,
+                type: 'GET',
+                dataType: conf.dataType,
+                success: function(res){
+                    //获取数据成功
+                    if (res.result){
+                        var data = {
+                            series: res.data.series,
+                            categories: res.data.categories
+                        };
+                        createKendoLineChart({
+                            selector: conf.container, // 图表容器
+                            data: data // 图表数据
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576048875098'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576048864120'
+            });
+        });
+    </script>
+    <script>
+        function createEStandLineChart(conf){
+            var myChart = echarts.init(document.getElementById(conf.selector));
+            var legendData = []
+            for(var i=0; i < conf.data.series.length;i++){
+                legendData.push(conf.data.series[i].name)
+            }
+            myChart.setOption({
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    y: 'bottom',
+                    data:legendData
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['bar','line']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        data : conf.data.xAxis
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        splitArea : {show : true}
+                    }
+                ],
+                series : conf.data.series
+            });
+         }
+        function initEStandLineChart(conf){
+            $.ajax({
+                url: conf.url,
+                type: 'GET',
+                dataType: conf.dataType,
+                success: function(res){
+                    //获取数据成功
+                    if (res.result){
+                        createEStandLineChart({
+                            selector: conf.containerId, // 图表容器
+                            data: res.data, // 图表数据
+                        });
+                    }
+                }
+            })
+        }
+    </script>
+    <script>
+        $(function(){
+            initEStandLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/chart3/demo.json',
+                dataType: 'json',
+                containerId: 'chart_1576049015419'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initEStandLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/chart3/demo.json',
+                dataType: 'json',
+                containerId: 'chart_1576049018724'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initEStandLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/chart3/demo.json',
+                dataType: 'json',
+                containerId: 'chart_1576049081358'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+                function renderTpl(str, cfg) {
+                    var re = /(#(.+?)#)/g;
+
+                    return str.replace(re, function() {
+                        var val = cfg[arguments[2]]+'';
+                        if(typeof val == 'undefined') {
+                            val = '';
+                        }
+                        return val;
+                    });
+                }
+
+
+            });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049539175'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049541738'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049543985'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049548650'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049551522'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049591018'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049746411'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoLineChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_line/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049600681'
+            });
+        });
+    </script>
+    <script>
+        // 创建图表
+        function createKendoBarChart(conf){
+            $(conf.selector).kendoChart({
+                legend: {
+                    position: "bottom"
+                },
+                theme : 'bootstrap',
+                categoryAxis : {
+                    majorGridLines : {
+                        visible: false
+                    },
+                    categories : conf.data.categories
+                },
+                seriesDefaults : {
+                    type: "column"
+                },
+                series : conf.data.series,
+                valueAxis : {
+                    max: 200,
+                    line: {
+                        visible: false
+                    },
+                    minorGridLines: {
+                        visible: false
+                    },
+                    labels : {
+                        rotation: "auto"
+                    }
+                },
+                tooltip: {
+                    visible : true,
+                    template: "#= series.name # #= value #"
+                }
+            });
+            $(window).resize(function(){
+                $(conf.selector).data("kendoChart").refresh();
+            });
+        }
+
+        function initKendoBarChart(conf){
+            // 异步请求后台数据
+            $.ajax({
+                url: conf.url,
+                type: 'GET',
+                dataType: conf.dataType,
+                success: function(res){
+                    //获取数据成功
+                    if (res.result){
+                        var data = {
+                            series: res.data.series,
+                            categories: res.data.categories
+                        };
+                        createKendoBarChart({
+                            selector: conf.container, // 图表窗器
+                            data: data // 图表数据
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        $(function(){
+            initKendoBarChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_bar/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049757636'
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            initKendoBarChart({
+                url: 'https://magicbox.bk.tencent.com/static_api/v3/components/charts_bar/demo.json',
+                dataType: 'json',
+                container: '#chart_1576049767040'
+            });
+        });
+    </script>
+    <script>
+        var dom1 = document.getElementById("cpuUsage");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+        option1 = null;
+        option1 = {
+            title: {
+                text: 'CPU趋势图',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            legend: {
+                data:['CPU趋势图'],
+             },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data : [''],
+                splitLine:{show:false},
+                axisLabel:{
+                    interval:0,
+                    rotate:45,
+                }
+
+            },
+            yAxis: {
+                type: 'value',
+                max: 100,
+
+            },
+            series: [
+                {
+                    name:'CPU趋势图',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[''],
+                    smooth:true,
+                    symbol: 'none',
+                },
+
+
+            ]
+        };
+        if (option1 && typeof option1 === "object") {
+            myChart1.setOption(option1, true);
+        }
+
+
+        var dom2 = document.getElementById("memoryUsage");
+        var myChart2 = echarts.init(dom2);
+        var app = {};
+        option2 = null;
+        option2 = {
+            title: {
+                text: '内存使用率',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            legend: {
+                data:['内存使用率'],
+             },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data : [''],
+                splitLine:{show:false},
+                axisLabel:{
+                    interval:0,
+                    rotate:45,
+                }
+
+
+            },
+            yAxis: {
+                type: 'value',
+                max: 100,
+
+            },
+            series: [
+                {
+                    name:'内存使用率',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[''],
+                    smooth:true,
+                    symbol: 'none',
+                },
+
+
+            ]
+        };
+        if (option2 && typeof option2 === "object") {
+            myChart2.setOption(option2, true);
+        }
+
+        var dom3 = document.getElementById("networkTraffic");
+        var myChart3 = echarts.init(dom3);
+        var app = {};
+        option3 = null;
+        option3 = {
+            title: {
+                text: '网卡流量',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            legend: {
+                data:['出口流量','进口流量'],
+             },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data : [''],
+                splitLine:{show:false},
+                axisLabel:{
+                    interval:0,
+                    rotate:45,
+                }
+
+            },
+            yAxis: {
+                type: 'value',
+                max: 100,
+
+            },
+            series: [
+                {
+                    name:'出口流量',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[''],
+                    smooth:true,
+                    symbol: 'none',
+                },{
+                    name:'进口流量',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[''],
+                    smooth:true,
+                    symbol: 'none',
+                },
+
+
+            ]
+        };
+        if (option3 && typeof option3 === "object") {
+            myChart3.setOption(option3, true);
+        }
+
+
+        var dom4 = document.getElementById("diskIO");
+        var myChart4 = echarts.init(dom4);
+        var app = {};
+        option4 = null;
+        option4 = {
+            title: {
+                text: '磁盘读写速率',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            legend: {
+                data:['磁盘读速率','磁盘写速率'],
+             },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data : [''],
+                splitLine:{show:false},
+                axisLabel:{
+                    interval:0,
+                    rotate:45,
+                }
+
+            },
+            yAxis: {
+                type: 'value',
+                max: 100,
+
+            },
+            series: [
+                {
+                    name:'磁盘读速率',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[''],
+                    smooth:true,
+                    symbol: 'none',
+                },{
+                    name:'磁盘写速率',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[''],
+                    smooth:true,
+                    symbol: 'none',
+                },
+
+
+            ]
+        };
+        if (option4 && typeof option4 === "object") {
+            myChart4.setOption(option4, true);
+        }
+
+        var dom5 = document.getElementById("process");
+        var myChart5 = echarts.init(dom5);
+        var app = {};
+        option5 = null;
+        option5 = {
+            title: {
+                text: '进程',
+                textStyle: {
+                    fontWeight: 'normal',
+                    color: "#00FFFF",
+                },
+            },
+            legend: {
+                data:['进程数'],
+             },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data : ['8:10','8:11','8:12','8:13','8:14','8:15'],
+                splitLine:{show:false},
+                axisLabel:{
+                    interval:0,
+                    rotate:45,
+                }
+
+            },
+            yAxis: {
+                type: 'value',
+                max: 100,
+
+            },
+            series: [
+                {
+                    name:'进程数',
+                    type:'line',
+                    stack: '百分比1',
+                    data:[10, 12, 9, 18, 16, 14, 12],
+                    smooth:true,
+                    symbol: 'none',
+                }
+
+
+            ]
+        };
+        if (option5 && typeof option5 === "object") {
+            myChart5.setOption(option5, true);
+        }
+
+        var dom6 = document.getElementById("diskUtilization");
+        var myChart6 = echarts.init(dom6);
+        option6 = null;
+        option6 = {
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                },
+                extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
+
+            },
+            legend: {
+                data: ['磁盘使用率']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis:  {
+                type: 'value',
+                min: "0",
+                max: "100",
+                splitLine:{show:false},
+                data:[""],
+
+                axisLabel:{
+                    interval:0,
+                    rotate:45,
+                }
+
+            },
+            yAxis: {
+                type: 'category',
+                data: [""],
+                smooth:true,
+                symbol: 'none',
+
+            },
+            series: [
+                {
+                    name: '',
+                    type: 'bar',
+                    stack: '总量',
+                    barWidth:30,
+                    label: {
+                        normal: {
+                            position: 'right',
+                            show: true
+                        }
+                    },
+
+                    data: [''],
+                    symbol: 'none',
+
+                    itemStyle:{
+                        normal:{
+                            color:function(params){
+                                if (params.data >50){
+                                    return '#FF4500'
+                                }else{
+                                    return '#228B22'
+                                }
+
+                            }
+                        },
+
+                    }
+                },
+
+
+            ]
+        }
+        if (option6 && typeof option6 === "object") {
+            myChart6.setOption(option6, true);
+        }
+        window.onload = function () {
+            commonLocalRefresh()
+            
+        }
+        function getHostInfo(item) {
+
+
+
+        }
+        //  获取数据局部刷新页面
+        function commonLocalRefresh() {
+            $.ajax({
+                url:"/get_detailspage_info/",
+                type:"GET",
+                dataType:"json",
+                success:function (data) {
+                    // 主机信息
+                    var hostInfo = data.host_info
+                    $("#hostName").html(hostInfo.name)          //主机
+                    $("#host").html(hostInfo.host)              //主机名
+                    $("#ipAddress").html(hostInfo.ip)           //ip
+                    $("#osType").html(hostInfo.os_name)         //os
+                    $("#runTime").html(hostInfo.uptime)         //运行时间
+
+                    // cpu使用率
+                    myChart1.setOption({
+                         series:[{
+                             data:data.cpu_info.cpu_unilization
+                         }],
+                         xAxis:[{
+                             data:data.cpu_info.systemtime
+                         }],
+                     })
+                    // 内存使用率
+                    myChart2.setOption({
+                         series:[{
+                             data:data.memory_utilization.memory_utilization
+                         }],
+                         xAxis:[{
+                             data:data.memory_utilization.memory_sysyem_time
+                         }],
+                     })
+                    //网卡流量
+
+                    myChart3.setOption({
+                         series:[{
+                             data:data.net_traffic.sent_traffic
+                         },{
+                             data:data.net_traffic.received_traffic
+                         }],
+                         xAxis:[{
+                             data:data.net_traffic.traffic_sysyem_time
+                         }],
+                     })
+                    // 磁盘读写速度
+                    myChart4.setOption({
+                         series:[{
+                             data:data.rw_rate.read_rate
+                         },{
+                             data:data.rw_rate.write_rate
+                         }],
+                         xAxis:[{
+                             data:data.rw_rate.disk_sysyem_time
+                         }],
+                     })
+                    // 告警信息
+                    var warningMessage = $("#warningMessage");
+                    warningMessage.html("");
+                    $(data.warned_message).each(
+                        function (i,value) {
+                            index = i + 1
+                            warningMessage.append(
+                                "<tr><td>" + index + "</td>"
+                                +"<td>" + value.trigger_time + "</td>"
+                                +"<td>" + value.priority + "</td>"
+                                +"<td>" + "</td>"
+                                +"<td>" + value.status + "</td>"
+                                +"<td>" + "</td>"
+                                +"<td>" + value.name + "</td>"
+                                +"<td>" + value.description + "</td>"
+                                +"<td>" + "</td>"
+                                +"<td>" + "</td>"
+                                +"<td>" + "</td>"
+                            )
+                        }
+                    )
+                    // 磁盘使用率
+
+                     myChart6.setOption({
+                         series:[{
+                             data:data.disk_utilization.disk_usage,
+                         }],
+                         yAxis:[{
+                             data:data.disk_utilization.hard_disk_mount_point
+                         }],
+                     })
+                }
+            })
+            setTimeout(commonLocalRefresh,10000);
+        }
+    </script>
+
+    <script>
+        // 控制左边菜单栏
+        $(function(){
+             var li = $('.navi li');
+             li.each(function(){
+             $(this).click(function(){
+             if( $(this).hasClass('c-open')){
+                $(this).find('ul').slideUp(350);
+                $(this).removeClass('c-open');
+             }else{
+               $(this).find('ul').slideDown(350);
+               $(this).addClass('c-open');
+               }
+              })
+           });
+        })
+    </script>
+
+</body>
+
+</html>

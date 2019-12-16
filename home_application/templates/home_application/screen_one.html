@@ -56,7 +56,7 @@
 
 <body class="" style="background-color: #2b669a">
         <div>
-            <p style="text-align:center;height: 50px"><span style="color: #2f7d33;font-size: 40px">服务器监控大屏{{ abc }}</span></p>
+            <p style="text-align:center;height: 50px"><span style="color: #2f7d33;font-size: 40px">服务器监控大屏</span></p>
         </div>
         <div class="div-a">
            <div  id="a" style="height: 100%;"></div>
@@ -674,8 +674,9 @@
                     cpu_usage.html("")
                     $(data.outlet_flow).each(
                         function (i,values) {
+                            a = i + 1
                             outlet_flow.append(
-                                "<tr><td>" + i  + "</td>"
+                                "<tr><td>" + a  + "</td>"
                                 +"<td>" + values.ip+"</td>"
                                 +"<td>" + values.lastvalue+"</td></tr>"
 
@@ -685,8 +686,9 @@
                     )
                     $(data.memory_data).each(
                         function (i,values) {
+                            a = i + 1
                             memory_data.append(
-                                "<tr><td>" + i  + "</td>"
+                                "<tr><td>" + a  + "</td>"
                                 +"<td>" + values.ip+"</td>"
                                 +"<td>" + values.lastvalue+"</td></tr>"
 
@@ -696,8 +698,9 @@
                     )
                     $(data.cpu_usage).each(
                         function (i,values) {
+                            a = i + 1
                             cpu_usage.append(
-                                "<tr><td>" + i + "</td>"
+                                "<tr><td>" + a + "</td>"
                                 +"<td>" + values.ip+"</td>"
                                 +"<td>" + values.lastvalue+"</td></tr>"
 
@@ -707,7 +710,7 @@
                     )
                 }
             })
-        //setTimeout(publicRefresh,10000);
+        setTimeout(publicRefresh,10000);
 
     }
 </script>
